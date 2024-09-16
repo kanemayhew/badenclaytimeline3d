@@ -1,0 +1,100 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0d0d0d; /* Darker background */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: #fff;
+}
+
+.instructions {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 100;
+    font-size: 14px;
+}
+
+.timeline-container {
+    width: 100vw;
+    height: 85vh; /* Adjusted height for improved card layout */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 50px 0; /* Padding for aesthetics */
+    box-sizing: border-box;
+}
+
+.timeline {
+    display: inline-flex;
+    align-items: center;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.timeline-card {
+    background: #1e1e1e; /* Softer contrast for cards */
+    padding: 20px;
+    width: 400px; /* Adjust width */
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: normal; /* Allow text wrapping */
+}
+
+.timeline-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+.timeline-card.expanded {
+    width: 600px; /* Expand width */
+    max-height: none; /* Remove height limit */
+    padding: 30px; /* Increase padding */
+}
+
+.date {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.event {
+    color: #ccc;
+    line-height: 1.6;
+    max-height: 4.5em; /* Limit height for initial view */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.timeline-card.expanded .event {
+    max-height: none; /* Show full text when expanded */
+}
+
+.timeline-card::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #555; /* Visual cue for interaction */
+    border-radius: 2px;
+    transition: background 0.3s ease;
+}
+
+.timeline-card.expanded::after {
+    background: #ff6347; /* Highlight color when expanded */
+}
