@@ -1,0 +1,81 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000; /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.instructions {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 100;
+    font-size: 14px;
+}
+
+.timeline-container {
+    perspective: 1500px;
+    overflow: hidden;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+}
+
+.timeline {
+    display: flex;
+    gap: 20px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smoother cubic-bezier transition */
+}
+
+.timeline-card {
+    background: #2c2c2c; /* Slightly lighter background for cards */
+    padding: 20px;
+    width: 800px; /* Increased card width */
+    max-width: 90vw; /* Ensure cards do not exceed viewport width */
+    color: #fff; /* White text */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Modern drop shadow */
+    border-radius: 15px; /* Rounded corners */
+    position: relative;
+    transform: translateZ(0px); /* Keep cards on the same plane */
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth zoom and shadow change */
+}
+
+.timeline-card.active {
+    transform: scale(1.15); /* Slight zoom for active card */
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2); /* Emphasized shadow for active card */
+    z-index: 10; /* Bring to the forefront */
+}
+
+.timeline-card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -15px;
+    height: 100px;
+    background: linear-gradient(rgba(44, 44, 44, 0.5), transparent);
+    transform: scaleY(-1);
+    border-radius: 15px; /* Match card rounding */
+    opacity: 0.3; /* Subtle reflection */
+    pointer-events: none;
+}
+
+.date {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.event {
+    color: #ddd;
+    line-height: 1.5;
+}
