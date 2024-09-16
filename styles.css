@@ -1,0 +1,78 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a; /* Darker background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    color: #fff; /* White text for instructions */
+}
+
+.instructions {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 100;
+    font-size: 14px;
+}
+
+.timeline-container {
+    width: 100vw;
+    height: 80vh; /* Adjusted height for better spacing */
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 40px 0;
+}
+
+.timeline {
+    display: inline-flex;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.timeline-card {
+    background: #333; /* Slightly lighter than background */
+    padding: 20px;
+    width: 350px; /* Wider cards */
+    max-width: 90vw; /* Ensure cards do not exceed viewport width */
+    color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+.timeline-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+}
+
+.timeline-card.expanded {
+    width: 600px; /* Expand width for more detail */
+}
+
+.date {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.event {
+    color: #ddd;
+    line-height: 1.6;
+    overflow: hidden;
+    max-height: 3em; /* Limit height */
+}
+
+.timeline-card.expanded .event {
+    max-height: none; /* Remove height restriction when expanded */
+}
