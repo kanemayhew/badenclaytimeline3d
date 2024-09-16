@@ -1,0 +1,49 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.timeline-container {
+    perspective: 1200px;
+    overflow: hidden;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+}
+
+.timeline {
+    display: flex;
+    gap: 20px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease; /* Smoother transition */
+}
+
+.timeline-card {
+    background: #1c1c1c; /* Dark background for cards */
+    padding: 20px;
+    width: 400px; /* Wider cards */
+    color: #fff; /* White text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    transform: rotateY(0deg) translateZ(0px);
+    transition: transform 0.5s ease;
+}
+
+.timeline-card:hover {
+    transform: rotateY(0deg) translateZ(50px); /* Less aggressive zoom effect */
+}
+
+.date {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.event {
+    color: #ddd;
+}
